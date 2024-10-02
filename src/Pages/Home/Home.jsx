@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button,  Card } from "react-bootstrap";
 import "./Home.css";
-import "../Pages/Home.css";
-import "../CSS/common.css";
+import '../../CSS/common.css'
 
 const Home = () => {
   return (
