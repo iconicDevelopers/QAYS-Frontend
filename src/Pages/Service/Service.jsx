@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import "./Service.css";
 import "../../Components/Header/NavBar.css";
-import { BsPerson } from "react-icons/bs"; // You can replace this with your desired icons
 
 const Service = () => {
   const serviceData = [
@@ -10,7 +9,7 @@ const Service = () => {
       serviceTitle: "Account Management",
       serviceDescription:
         "From creative content creation to targeted advertising and comprehensive analytics.",
-      iconClass: "bi bi-car-front", // If you are using Bootstrap icons
+      iconClass: "bi bi-car-front", 
     },
     {
       serviceTitle: "Marketing Strategy",
