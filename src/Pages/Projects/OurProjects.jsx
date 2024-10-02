@@ -45,7 +45,7 @@ const OurProjects = () => {
             <Row>
               {ourProjects.map((item, idx) => (
                 <Col
-                  sm={6}
+                  xs={6}
                   md={4}
                   lg={4}
                   key={idx}

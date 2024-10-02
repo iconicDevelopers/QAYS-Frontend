@@ -7,6 +7,7 @@
   align-items: start;
   justify-content: center;
   gap: 10px;
+  padding-bottom: 30px;
 }
 .ourProjects-heading {
   font-weight: 600;
