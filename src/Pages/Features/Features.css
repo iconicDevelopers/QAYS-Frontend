@@ -1,0 +1,89 @@
+.features-container {
+  background-color: #ffffff;
+  padding: 100px 0px 50px 0px;
+}
+.features-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.features-heading {
+  font-weight: 600;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .features-heading {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .features-heading {
+    font-size: 42px;
+  }
+}
+.features-para,
+.features-heading {
+  text-align: center;
+}
+
+/* Button Styling */
+.features-button {
+  border: 1px solid #fbfbfb !important;
+  font-weight: bold !important;
+  background-color: #222831;
+  padding: 4px 20px !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.features-button:hover {
+  background-color: #ff5722 !important;
+  border: none !important;
+}
+
+.features-button .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.features-button::after {
+  content: "→";
+  position: relative;
+  transition: transform 0.3s ease, content 0.3s ease;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.features-button:hover::after {
+  content: "↓";
+  transform: translateY(5px);
+}
+
+.features-button:hover span {
+  transform: translateY(-5px);
+}
+
+.features-card {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #dddddd;
+  border-radius: unset;
+  padding-bottom: 15px;
+}
+.features-description {
+  font-size: 14px;
+}
+
+.features-icon {
+  color: #ff5722;
+  font-size: 3rem;
+  margin: 0px 0px 0px 15px;
+}

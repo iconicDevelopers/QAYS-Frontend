@@ -1,0 +1,71 @@
+.OurProject-container {
+  padding: 100px 0px 60px 0px;
+}
+.ourProjects-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 10px;
+}
+.ourProjects-heading {
+  font-weight: 600;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .ourProjects-heading {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ourProjects-heading {
+    font-size: 42px;
+  }
+}
+.ourProjects-para {
+  color: #797676;
+}
+
+/* Button Styling */
+.ourProjects-button {
+  border: none;
+  font-weight: bold !important;
+  background-color: #222831;
+  color: white;
+  padding: 4px 20px !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.ourProjects-button:hover {
+  background-color: #ff5722 !important;
+  border: none !important;
+}
+
+.ourProjects-button .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.ourProjects-button::after {
+  content: "→";
+  position: relative;
+  transition: transform 0.3s ease, content 0.3s ease;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.ourProjects-button:hover::after {
+  content: "↓";
+  transform: translateY(5px);
+}
+
+.ourProjects-button:hover span {
+  transform: translateY(-5px);
+}
