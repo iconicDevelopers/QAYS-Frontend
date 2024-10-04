@@ -27,33 +27,9 @@
   color: rgb(37, 37, 37);
   margin-bottom: 0px;
 }
-.home-card-items:hover {
-  transform: translateY(-4px);
-}
-.home-card-items {
-  border: none;
-  outline: none;
-}
-.home-icon {
-  color: rgb(255, 87, 34);
-  font-size: 25px;
-}
-
-.home-link {
-  color: rgb(96, 95, 95);
-  font-size: 14px;
-}
-.home-link:hover,
-.home-link i:hover {
-  color: rgb(255, 87, 34);
-}
-.home-link i {
-  color: rgb(96, 95, 95);
-  font-size: 9px;
-}
 
 /* Hero Section Container */
-.hero-section {
+.home-section {
   position: relative;
   padding: 80px 0;
   overflow: hidden; /* Hide overflowing animations */
@@ -111,4 +87,3 @@
     opacity: 1;
   }
 }
-

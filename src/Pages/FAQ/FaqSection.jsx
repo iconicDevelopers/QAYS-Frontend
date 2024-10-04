@@ -8,34 +8,27 @@ import {
   Form,
   Card,
 } from "react-bootstrap";
-import "./FaqSection.css"; // Custom CSS for styling
+import "./FaqSection.css";
 
 const FaqSection = () => {
   const faqData = [
     {
-      question: "What services does your Social Media Marketing Agency offer?",
-      answer: `Our agency offers a comprehensive range of services including social media strategy development,
-      content creation, community management, social media advertising, influencer partnerships, analytics and reporting, and more.`,
+      question: "What types of applications do you develop?",
+      answer: `We specialize in a wide range of applications, including mobile apps for iOS and Android, custom web applications, and Web3 blockchain solutions. Our team tailors each project to meet specific client needs, ensuring functionality and user experience are at the forefront.`,
     },
     {
-      question: "Why is SMM important for businesses?",
-      answer: `Social media marketing helps businesses connect with their audience, increase brand awareness, 
-      drive traffic, and generate leads or sales. It's a crucial tool for any modern business.`,
+      question: "Can you convert designs from Figma to a functional web app?",
+      answer: `Absolutely! We offer Figma to web app conversion services, where our team meticulously translates your design files into fully functional web applications. Our focus is on maintaining the integrity of your design while ensuring optimal performance and responsiveness.
+`,
     },
     {
-      question: "Which social media platforms should I use?",
-      answer: `The best social media platforms for your business depend on your audience and goals. 
-      Popular platforms include Facebook, Instagram, Twitter, LinkedIn, and TikTok.`,
+      question: "How do you approach Web3 and blockchain development?",
+      answer: `Our approach to Web3 and blockchain development involves understanding your specific requirements and creating custom blockchain solutions that meet those needs. We focus on building secure, scalable, and user-friendly applications, utilizing the latest technologies in decentralized systems.
+`,
     },
     {
-      question: "What is the primary goal of Social Media Marketing?",
-      answer: `The primary goal of social media marketing is to build and maintain relationships with your audience. 
-      This leads to increased brand loyalty and business growth.`,
-    },
-    {
-      question: "How can I get started with Social Media Marketing?",
-      answer: `To get started with social media marketing, you need to define your goals, understand your audience, 
-      and create a content strategy that resonates with them.`,
+      question: "What is your process for ensuring client satisfaction?",
+      answer: `We prioritize client satisfaction by maintaining open communication throughout the development process. We start with a thorough consultation to understand your vision, provide regular updates, and involve you in key decisions. Our goal is to deliver a final product that exceeds your expectations.`,
     },
   ];
 

@@ -1,0 +1,106 @@
+/* ContactFormModal.css */
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+.modal-body {
+  padding: 0px 2rem 2rem 2rem;
+}
+
+.form-control {
+  border-radius: 0;
+  margin-bottom: 1rem;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #ddd;
+}
+.form-check-label {
+  font-weight: bold;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+button[type="submit"] {
+  background-color: #000;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 1rem auto 0;
+}
+
+button[type="submit"]:hover {
+  background-color: #333;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+button.close {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+button.close:focus {
+  outline: none;
+}
+
+.call-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+.call-book h2 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .call-book h2 {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .call-book h2 {
+    font-size: 42px;
+  }
+}
+.call-book p {
+  color: #d1d1d3;
+}
+.call-book Button {
+  background-color: #ff5a00 !important;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.call-book Button:hover {
+  background-color: #5b5858 !important;
+  box-shadow: inset 2px 2px 15px rgba(255, 255, 255, 0.3); /* Inner shadow effect */
+  transform: scale(1.05);
+}

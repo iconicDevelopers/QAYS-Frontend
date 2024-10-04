@@ -1,0 +1,64 @@
+.testimonial-conatiner {
+  padding: 100px 0px 50px 0px;
+}
+.testimonial-heading {
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .testimonial-heading {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonial-heading {
+    font-size: 48px;
+  }
+}
+.testimonial-para {
+  font-size: 18px;
+}
+.rounded-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.carsusel-card {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px;
+}
+.carsusel-card:hover {
+  transform: scale(1.03);
+}
+.testimonial-text {
+  font-size: 1.1rem;
+  color: rgb(151, 151, 151);
+  font-weight: 300;
+  margin-top: 10px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.testimonial-author {
+  font-size: 1.3rem;
+  font-weight: bold;
+  /* color: #ff5b5b; */
+  margin-top: 20px;
+}
+
+.testimonial-stars {
+  font-size: 20px;
+  color: #ffc107; /* Custom yellow color for stars */
+}
+@media (max-width: 768px) {
+  .carsusel-card {
+    text-align: center;
+  }
+}

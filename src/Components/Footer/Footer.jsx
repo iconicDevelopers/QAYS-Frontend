@@ -1,28 +1,13 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./footer.css";
-import BookCall from "./BookCall";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import ContactFormModal from "./ContactFormModal";
 const Footer = () => {
   return (
     <div className="footer">
       <Container>
-        <BookCall />
-        <Row className="align-items-center text-center footer-items ">
-          {/* Social Icons */}
-          <Col xs={12} md={4} className="footer-social">
-            <a href="icon" className="social-icon">
-              <FaFacebookF />
-            </a>
-            <a href="icon" className="social-icon">
-              <FaLinkedinIn />
-            </a>
-            <a href="icon" className="social-icon">
-              <FaTwitter />
-            </a>
-          </Col>
-
-          {/* Logo and Tagline */}
+        <ContactFormModal />
+        {/* <Row className="align-items-center text-center footer-items ">
           <Col xs={12} md={4} className="footer-logo">
             <h4 className="logo-text">
               <i class="bi bi-send"></i>
@@ -32,25 +17,13 @@ const Footer = () => {
               Transforming your Idea into Reality.
             </p>
           </Col>
-
-          {/* Footer Links */}
-          <Col xs={12} md={4} className="footer-links">
-            <a href="footer-link" className="footer-link">
-              Services
-            </a>
-            <a href="footer-link" className="footer-link">
-              Case Studies
-            </a>
-            <a href="footer-link" className="footer-link">
-              Testimonials
-            </a>
-          </Col>
         </Row>
+         */}
 
         {/* Copyright */}
         <Row>
           <Col className="text-center copyright">
-            <p>© SOCA Solutions. All rights reserved.</p>
+            <p>© @QAYS IT Solutions.All rights reserved</p>
           </Col>
         </Row>
       </Container>

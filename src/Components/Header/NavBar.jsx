@@ -1,6 +1,6 @@
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa"; // Use Font Awesome for the close icon
+import { FaTimes } from "react-icons/fa";
 import "./NavBar.css";
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
@@ -29,13 +29,11 @@ function NavBar() {
           <Nav className="ms-auto text-start">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#services">Services</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
             <Nav.Link href="#testimonial">Testimonial</Nav.Link>
+            <Nav.Link href="#features">FAQ</Nav.Link>
+            <Nav.Link href="#projects">About as</Nav.Link>
+            <Nav.Link href="Contact as">Contact as</Nav.Link>
           </Nav>
-          <Button variant="outline-warning" className="ms-3 template-button">
-            Get The Template <span className="arrow"> </span>
-          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

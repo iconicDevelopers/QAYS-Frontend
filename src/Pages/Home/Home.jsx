@@ -1,27 +1,29 @@
 import React from "react";
-import { Container, Row, Col, Button,  Card } from "react-bootstrap";
+import { Container, Row, Col, Button,  } from "react-bootstrap";
 import "./Home.css";
-import '../../CSS/common.css'
+import "../../CSS/common.css";
 
 const Home = () => {
   return (
-    <div className="hero-section">
+    <div className="home-section">
       <Container>
         <div className="background-animation"></div>
         <Row>
           <Col>
             <h1 className="custom-heading">
-              Ignite Your Business Growth by Implementing Strategic Media
-              Marketing Campaigns
+              Bringing Your Vision to Life – Trusted Mobile & Web App Solutions
+              for Dreamers & Innovators
             </h1>
           </Col>
         </Row>
         <Row className="align-items-center ">
-          <Col lg={5}>
+          <Col lg={6}>
             <p className="custom-para">
-              Our cutting-edge social media marketing tactics will help you
-              maximize your brand’s online visibility and expand your business
-              exponentially. By leveraging the power of social media platforms.
+              we specialize in transforming visionary ideas into powerful mobile
+              and web applications. Our expert team delivers tailored solutions
+              designed to meet the unique needs of dreamers and innovators.
+              Trusted by people, we bring innovation, reliability, and success
+              to every project we undertake.
             </p>
             <Button
               variant="warning"
@@ -30,24 +32,6 @@ const Home = () => {
             >
               View Our Services
             </Button>
-
-            <Card className="p-2 home-card-items">
-              <Card.Body className="d-flex gap-3 ">
-                <div className="home-icon">
-                  <i class="bi bi-disc"></i>
-                </div>
-                <div className="text-start">
-                  <h5>Join Free Webinar To Learn The Top Marketing Secrets</h5>
-                  <p className="home-para">
-                    For everyone who wants to become a social media expert.
-                  </p>
-                  <Card.Link href="#" className="view-details-link">
-                    View Details
-                    <i className="bi bi-chevron-right icon"></i>
-                  </Card.Link>
-                </div>
-              </Card.Body>
-            </Card>
           </Col>
         </Row>
       </Container>

@@ -1,29 +1,76 @@
 import React from "react";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import "./Service.css";
 import "../../Components/Header/NavBar.css";
 
 const Service = () => {
   const serviceData = [
     {
-      serviceTitle: "Account Management",
-      serviceDescription:
-        "From creative content creation to targeted advertising and comprehensive analytics.",
-      iconClass: "bi bi-car-front", 
+      title: "Custom Website Development",
+      icon: "🌐",
+      description:
+        "Develop customized websites that align with your business goals.",
     },
     {
-      serviceTitle: "Marketing Strategy",
-      serviceDescription:
-        "From creative content creation to targeted advertising and comprehensive analytics.",
-      iconClass: "bi bi-steering-wheel",
+      title: "Custom Web Application Development",
+      icon: "💻",
+      description: "Build scalable and high-performance web applications.",
     },
     {
-      serviceTitle: "Media Advertising",
-      serviceDescription:
-        "From creative content creation to targeted advertising and comprehensive analytics.",
-      iconClass: "bi bi-graph-up-arrow",
+      title: "Figma to Web App Conversions",
+      icon: "🖼️",
+      description: "Convert your Figma designs into fully responsive web apps.",
+    },
+    {
+      title: "Machine Learning (ML) Integration",
+      icon: "🤖",
+      description: "Leverage machine learning to make data-driven decisions.",
+    },
+    {
+      title: "Artificial Intelligence (AI) Integration",
+      icon: "🧠",
+      description: "Implement AI-driven features to enhance your applications.",
+    },
+
+    {
+      title: "IoT Integration",
+      icon: "📡",
+      description: "Connect your devices and services with IoT integrations.",
+    },
+
+    {
+      title: "WordPress Development",
+      icon: "🔧",
+      description: "Develop custom WordPress websites and plugins.",
+    },
+    {
+      title: "Mobile App Development for iOS and Android",
+      icon: "📱",
+      description:
+        "Design and develop mobile applications for iOS and Android platforms.",
+    },
+    {
+      title: "Portfolio Page Creation",
+      icon: "📁",
+      description: "Create stunning portfolio pages to showcase your work.",
+    },
+    {
+      title: "Web3 Blockchain Applications",
+      icon: "🔗",
+      description:
+        "Integrate blockchain solutions into your apps using Web3 technologies.",
     },
   ];
+
+  const chunkArray = (array, size) => {
+    const chunkedArr = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunkedArr.push(array.slice(i, i + size));
+    }
+    return chunkedArr;
+  };
+
+  const carouselItems = chunkArray(serviceData, 3); // Chunk the array into groups of 3
 
   return (
     <div className="service-container">
@@ -31,17 +78,20 @@ const Service = () => {
         <Row>
           <Col>
             <h2 className="service-heading">
-              Supercharge Your Social Media Campaigns with Proven Strategies for
-              Unprecedented Success
+              Elite Custom App, Web & Web3 Development – Pioneering Digital
+              Solutions Across All Technologies
             </h2>
           </Col>
         </Row>
-        <Row className=" mt-5">
+
+        <Row className="mt-5">
           <Col lg={4}>
             <p className="service-para">
-              We work tirelessly to maximize your brand's <br />
-              visibility, engagement, and conversion rates <br />
-              across all major social media platforms.
+              Our expert team provides custom design, web and mobile app
+              development for iOS, Android, and Web3 blockchain applications.
+              IoT, AI, ML integrations, and more. Innovative Tech Integration
+              Across Multiple Tech Stacks, we deliver tailored solutions to
+              bring your vision to life.
             </p>
             <Button
               variant="warning"
@@ -53,28 +103,33 @@ const Service = () => {
           </Col>
 
           <Col lg={8}>
-            <Row>
-              {serviceData.map((item, index) => (
-                <Col lg={4} md={6} key={index} className="mb-4">
-                  <Card
-                    className={`service-card ${
-                      index === 0 ? "first-card" : "aother-cards"
-                    }`}
-                  >
-                    <i className={`${item.iconClass} service-icon`}></i>
-                    <Card.Body className="service-card-body">
-                      <Card.Title className="service-title">
-                        {item.serviceTitle}
-                      </Card.Title>
-                      <Card.Text className="service-description">
-                        {item.serviceDescription}
-                      </Card.Text>
-                      <Button className="service-button">Learn More</Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
+            <Carousel
+              indicators={false}
+              interval={3000} // Set interval to 3 seconds
+              controls={false}
+            >
+              {carouselItems.map((group, groupIndex) => (
+                <Carousel.Item key={groupIndex}>
+                  <Row>
+                    {group.map((item, index) => (
+                      <Col lg={4} md={6} xs={12} className="mb-4" key={index}>
+                        <Card className="service-card">
+                          <i className="service-icon">{item.icon}</i>
+                          <Card.Body className="service-card-body">
+                            <Card.Title className="service-title">
+                              {item.title}
+                            </Card.Title>
+                            <Card.Text className="service-description">
+                              {item.description}
+                            </Card.Text>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    ))}
+                  </Row>
+                </Carousel.Item>
               ))}
-            </Row>
+            </Carousel>
           </Col>
         </Row>
       </Container>
