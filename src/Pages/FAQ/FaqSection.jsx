@@ -33,7 +33,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <div className="faq-section">
+    <div className="faq-section" id="faq">
       <Container>
         <Row>
           <Col md={5} className="faq-card">

@@ -1,8 +1,6 @@
-import React from "react";
 import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import "./Service.css";
 import "../../Components/Header/NavBar.css";
-
 const Service = () => {
   const serviceData = [
     {
@@ -73,7 +71,7 @@ const Service = () => {
   const carouselItems = chunkArray(serviceData, 3); // Chunk the array into groups of 3
 
   return (
-    <div className="service-container">
+    <div className="service-container" id="services">
       <Container>
         <Row>
           <Col>
@@ -102,7 +100,7 @@ const Service = () => {
             </Button>
           </Col>
 
-          <Col lg={8}>
+          <Col lg={8} className="services-container">
             <Carousel
               indicators={false}
               interval={3000} // Set interval to 3 seconds

@@ -30,9 +30,9 @@ function NavBar() {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#services">Services</Nav.Link>
             <Nav.Link href="#testimonial">Testimonial</Nav.Link>
-            <Nav.Link href="#features">FAQ</Nav.Link>
-            <Nav.Link href="#projects">About as</Nav.Link>
-            <Nav.Link href="Contact as">Contact as</Nav.Link>
+            <Nav.Link href="#faq">FAQ</Nav.Link>
+            <Nav.Link href="#projects">About us</Nav.Link>
+            <Nav.Link href="#contactus">Contact us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

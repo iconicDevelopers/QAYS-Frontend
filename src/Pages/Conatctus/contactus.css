@@ -1,45 +1,78 @@
-.call-book {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    text-align: center;
-  }
-  .call-book h2 {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 28px;
-  }
-  
-  @media (min-width: 768px) {
-    .call-book h2 {
-      font-size: 36px;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .call-book h2 {
-      font-size: 42px;
-    }
-  }
-  .call-book p {
-    color: #d1d1d3;
-  }
-  .call-book Button {
-    background-color: #ff5a00 !important;
+.App {
+  text-align: center;
+  margin-top: 50px;
+
+  .open-btn {
+    background-color: #28a745;
     border: none;
-    outline: none;
-    padding: 4px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    transition: all 0.3s ease;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 50px;
+    color: white;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #218838;
+    }
   }
-  
-  .call-book Button:hover {
-    background-color: #5b5858 !important;
-    box-shadow: inset 2px 2px 15px rgba(255, 255, 255, 0.3); /* Inner shadow effect */
-    transform: scale(1.05);
+
+  .custom-modal {
+    .modal-content {
+      border-radius: 20px;
+      padding: 20px;
+      background: #f8f9fa;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      border-bottom: none;
+      padding-bottom: 0;
+
+      .close {
+        font-size: 25px;
+        color: #333;
+
+        &:hover {
+          color: #ff0000;
+        }
+      }
+    }
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 24px;
+      color: #343a40;
+    }
+
+    .modal-body {
+      padding-top: 10px;
+      form {
+        .form-label {
+          font-size: 18px;
+          color: #343a40;
+        }
+
+        .form-control {
+          padding: 10px;
+          border-radius: 10px;
+          font-size: 16px;
+        }
+
+        .submit-btn {
+          width: 100%;
+          margin-top: 15px;
+          padding: 10px;
+          font-size: 18px;
+          background-color: #007bff;
+          border: none;
+          border-radius: 30px;
+          color: white;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
   }
-  
+}

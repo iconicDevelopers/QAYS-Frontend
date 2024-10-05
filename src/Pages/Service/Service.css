@@ -15,6 +15,7 @@
   .service-heading {
     font-size: 36px;
   }
+  
 }
 
 @media (min-width: 1200px) {
@@ -24,6 +25,7 @@
 }
 .service-para {
   color: #d9dbdf;
+  
 }
 .service-title {
   font-size: 20px;
@@ -54,8 +56,7 @@
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  box-shadow: 10px 10px 10px rgb(0, 0 , 0, 0.25 );
-
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.25);
 }
 .service-card:hover {
   transform: translateY(-5px);
@@ -99,4 +100,82 @@
 
 .service-button:hover span {
   transform: translateY(-5px);
+}
+
+.services-container {
+  padding: 2rem 0;
+  position: relative; /* Position for absolute overlay */
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+.services-scroll-container {
+  display: flex; /* Flexbox for horizontal layout */
+  overflow-x: hidden; /* Hide overflow */
+  gap: 1rem; /* Space between cards */
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.service-card {
+  min-width: 250px; /* Minimum width for cards */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.service-card-inner {
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  background-color: transparent;
+}
+
+.service-card-inner:hover {
+  transform: scale(1.05);
+}
+
+.card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.service-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.service-card-inner:hover .overlay {
+  opacity: 1;
+}
+
+.service-icon {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.know-more {
+  display: inline-block;
+  color: #fff;
+  background-color: #ff5a5f;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.know-more:hover {
+  background-color: #ff343f;
 }

@@ -1,11 +1,11 @@
 import React from "react";
-import {  Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./testimonial.css";
 import TestimonialCarousel from "./TestimonialCarousel";
 
 const Testimonial = () => {
   return (
-    <div className="testimonial-conatiner">
+    <div className="testimonial-conatiner" id="testimonial">
       <Container>
         <Row className="d-flex flex-column gap-5">
           <Col className="text-center">

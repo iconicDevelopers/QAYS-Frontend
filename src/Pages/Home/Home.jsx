@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Row, Col, Button,  } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./Home.css";
 import "../../CSS/common.css";
 
 const Home = () => {
   return (
-    <div className="home-section">
+    <div className="home-section" id="home">
       <Container>
         <div className="background-animation"></div>
         <Row>
