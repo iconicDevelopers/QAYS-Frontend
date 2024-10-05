@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
 import "./Service.css";
 import "../../Components/Header/NavBar.css";
 
-const Service = () => {
+const Service = ({ theme }) => {
   const serviceData = [
     {
       title: "Custom Website Development",
@@ -73,7 +73,11 @@ const Service = () => {
   const carouselItems = chunkArray(serviceData, 3); // Chunk the array into groups of 3
 
   return (
-    <div className="service-container">
+    <div
+      className={
+        theme === "dark" ? "service-container-dark" : "service-container"
+      }
+    >
       <Container>
         <Row>
           <Col>

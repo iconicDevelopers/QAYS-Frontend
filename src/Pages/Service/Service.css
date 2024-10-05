@@ -2,6 +2,10 @@
   background-color: #222831;
   padding: 100px 0px 50px 0px;
 }
+.service-container-dark {
+  background-color: rgb(17, 15, 15);
+  padding: 100px 0px 50px 0px;
+}
 .service-heading {
   color: #fafafa;
   font-weight: 600;
@@ -54,8 +58,7 @@
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  box-shadow: 10px 10px 10px rgb(0, 0 , 0, 0.25 );
-
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.25);
 }
 .service-card:hover {
   transform: translateY(-5px);

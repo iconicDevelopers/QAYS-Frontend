@@ -7,6 +7,22 @@
   font-size: 28px;
 }
 
+.custom-heading-dark {
+  color: #faf8f8;
+  font-weight: 600;
+  text-align: start;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.dark-home {
+  background-color: rgb(17, 15, 15);
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden; /* Hide overflowing animations */
+}
+
 @media (min-width: 768px) {
   .custom-heading {
     font-size: 36px;
@@ -19,12 +35,33 @@
   }
 }
 
+@media (min-width: 768px) {
+  .custom-heading-dark {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .custom-heading-dark {
+    font-size: 48px;
+  }
+}
+
 .custom-para {
   font-weight: 400;
   text-align: start;
   line-height: 1.6rem;
   font-size: 16px;
   color: rgb(37, 37, 37);
+  margin-bottom: 0px;
+}
+
+.custom-para-dark {
+  font-weight: 400;
+  text-align: start;
+  line-height: 1.6rem;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
   margin-bottom: 0px;
 }
 

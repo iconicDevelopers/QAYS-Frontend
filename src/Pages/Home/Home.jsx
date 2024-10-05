@@ -1,16 +1,20 @@
 import React from "react";
-import { Container, Row, Col, Button,  } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./Home.css";
 import "../../CSS/common.css";
 
-const Home = () => {
+const Home = ({ theme }) => {
   return (
-    <div className="home-section">
+    <div className={theme === "dark" ? "dark-home" : "home-section"}>
       <Container>
         <div className="background-animation"></div>
         <Row>
           <Col>
-            <h1 className="custom-heading">
+            <h1
+              className={
+                theme === "dark" ? "custom-heading-dark" : "custom-heading"
+              }
+            >
               Bringing Your Vision to Life – Trusted Mobile & Web App Solutions
               for Dreamers & Innovators
             </h1>
@@ -18,7 +22,9 @@ const Home = () => {
         </Row>
         <Row className="align-items-center ">
           <Col lg={6}>
-            <p className="custom-para">
+            <p
+              className={theme === "dark" ? "custom-para-dark" : "custom-para"}
+            >
               we specialize in transforming visionary ideas into powerful mobile
               and web applications. Our expert team delivers tailored solutions
               designed to meet the unique needs of dreamers and innovators.
