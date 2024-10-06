@@ -72,15 +72,11 @@ const Service = ({ theme }) => {
   const carouselItems = chunkArray(serviceData, 3); // Chunk the array into groups of 3
 
   return (
-<<<<<<< HEAD
-    <div className="service-container" id="services">
-=======
     <div
       className={
         theme === "dark" ? "service-container-dark" : "service-container"
       }
     >
->>>>>>> fbaffb48a26ee46f761205ce9cd5b1b706ca6d5a
       <Container>
         <Row>
           <Col>
