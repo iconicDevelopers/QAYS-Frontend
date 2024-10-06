@@ -5,9 +5,8 @@ import FaqSection from "./Pages/FAQ/FaqSection";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Testimonial from "./Pages/Testimonial/Testimonial";
-import ContactUs from "./Pages/Conatctus/ContactUs";
 import AboutUs from "./Pages/Aboutus/AboutUs";
-import "./App.css"; // Your global CSS
+import "./App.css"; 
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -18,6 +17,7 @@ const App = () => {
       <Home theme={theme} />
       <Service theme={theme} />
       <Testimonial theme={theme} />
+      <AboutUs theme={theme} />
       <FaqSection theme={theme} />
       <Footer theme={theme} />
     </div>

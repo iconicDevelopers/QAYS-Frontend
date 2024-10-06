@@ -1,13 +1,16 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import aboutImage from "../../assets/amgc43amgcrightfrontthreequarter.jpeg";
+import aboutImage from "../../assets/Online world-amico.svg";
 import "./aboutus.css";
 
-const AboutUs = () => {
+const AboutUs = ({ theme }) => {
   return (
-    <div className="about-section">
-      <Container>
-        <Row className="align-items-center">
+    <div
+      className={theme === "dark" ? "about-section-dark" : "about-section"}
+      id="aboutus"
+    >
+      <Container className="about-container">
+        <Row className="align-items-center mb-4">
           <Col md={6} xs={12}>
             <div className="about-image-container">
               <Image
@@ -22,7 +25,7 @@ const AboutUs = () => {
           <Col md={6} xs={12} className="about-content">
             <h2 className="about-heading">About Us</h2>
             <p>
-              we are dedicated to turning your ideas into reality with
+              We are dedicated to turning your ideas into reality with
               innovative technology solutions. Since 2017, our expert team has
               delivered outstanding mobile and web application development
               services tailored to meet the unique needs of clients worldwide
@@ -43,6 +46,14 @@ const AboutUs = () => {
               boundaries of technology and help you achieve your goals.
             </p>
           </Col>
+        </Row>
+        <Row className="join-aboutus">
+          <h2>“Join us in shaping a transformative future together!”</h2>
+          <p>
+            This version is simplified while still retaining key information,
+            making it more accessible. Feel free to contact us for a free
+            consultation to learn more about our services!
+          </p>
         </Row>
       </Container>
     </div>

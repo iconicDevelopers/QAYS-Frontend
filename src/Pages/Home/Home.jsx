@@ -35,6 +35,7 @@ const Home = ({ theme }) => {
               variant="warning"
               size="lg"
               className="mt-4 mb-5 template-button"
+              // href="services"
             >
               View Our Services
             </Button>

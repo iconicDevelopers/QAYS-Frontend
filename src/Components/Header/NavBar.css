@@ -1,4 +1,7 @@
-/* Navbar Container */
+.nav-logo {
+  height: 50px;
+  min-width: auto;
+}
 .navbar {
   padding: 15px 0px;
   background-color: rgb(255, 255, 255);
