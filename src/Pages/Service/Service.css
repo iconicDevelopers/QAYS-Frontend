@@ -2,6 +2,10 @@
   background-color: #222831;
   padding: 100px 0px 50px 0px;
 }
+.service-container-dark {
+  background-color: rgb(17, 15, 15);
+  padding: 100px 0px 50px 0px;
+}
 .service-heading {
   color: #fafafa;
   font-weight: 600;

@@ -2,9 +2,9 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./footer.css";
 import ContactFormModal from "./ContactFormModal";
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <div className="footer">
+    <div className={theme === "dark" ? "footer-dark" : "footer"}>
       <Container>
         <ContactFormModal />
         {/* <Row className="align-items-center text-center footer-items ">

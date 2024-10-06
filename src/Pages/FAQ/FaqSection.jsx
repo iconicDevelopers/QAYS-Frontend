@@ -1,16 +1,8 @@
 import React from "react";
-import {
-  Accordion,
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  Card,
-} from "react-bootstrap";
+import { Accordion, Container, Row, Col, Button } from "react-bootstrap";
 import "./FaqSection.css";
 
-const FaqSection = () => {
+const FaqSection = ({ theme }) => {
   const faqData = [
     {
       question: "What types of applications do you develop?",
@@ -33,42 +25,21 @@ const FaqSection = () => {
   ];
 
   return (
-    <div className="faq-section" id="faq">
+    <div className={theme === "dark" ? "faq-section-dark" : "faq-section"}>
       <Container>
         <Row>
           <Col md={5} className="faq-card">
-            <h2 className="faq-title">
+            <h2 className={theme === "dark" ? "faq-title-dark" : "faq-title"}>
               Frequently Asked <br />
               Questions
             </h2>
             <Button className="grow-business-button">Grow Your Business</Button>
-
-            <Card className="newsletter-box">
-              <Card.Body className="newsleter-box-items">
-                <h4>
-                  Get Weekly Social Media Marketing <br /> Tips & Tricks
-                </h4>
-                <p className="py-2">
-                  Guided by their mission statements & the desire <br /> to
-                  create positive change
-                </p>
-                <Form>
-                  <Form.Group controlId="formEmail">
-                    <Form.Control
-                      type="email"
-                      placeholder="Type Your Email"
-                      className="join-coummunity-input"
-                    />
-                  </Form.Group>
-                  <Button className="join-community-btn mt-3 w-100">
-                    Join Our Community
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
           </Col>
 
-          <Col md={7} className="faq-list">
+          <Col
+            md={7}
+            className={theme === "dark" ? "faq-list-dark" : "faq-list"}
+          >
             <Accordion defaultActiveKey="0" className="faq-item">
               {faqData.map((item, index) => (
                 <Accordion.Item
