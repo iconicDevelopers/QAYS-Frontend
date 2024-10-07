@@ -1,13 +1,26 @@
 import React, { useState } from "react";
+import isEmpty from "lodash/isEmpty";
+import axios from "axios";
 import { Modal, Button, Form, Container, Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaTimes } from "react-icons/fa";
-import axios from "axios";
 import "./ContactFormModal.css";
+import { toastErrorStyle, toastSuccessStyle } from "../../helpers/toastHelper";
+import {
+  EROOR_FOR_SELECT_DATE,
+  ERROR_FOR_LIMITED_DATE,
+  ERROR_FOR_SELECT_ATLEAST_ONE_DATE,
+  ERROR_FOR_SENDING_MESSAGE,
+} from "../../constant";
 
+/**
+ * Component for the Contact Form Modal
+ *
+ * @returns {JSX.Element}
+ */
 const ContactFormModal = () => {
-  const [show, setShow] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,9 +31,10 @@ const ContactFormModal = () => {
     selectedDates: [],
   });
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  /**
+   * Handle changes to the form inputs, and update the form data state accordingly
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e - The event object from the input change
+   */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -29,7 +43,10 @@ const ContactFormModal = () => {
     }));
   };
 
-  // Handle changes for radio buttons
+  /**
+   * Handles changes to the radio button input for the contact method
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The event object from the input change
+   */
   const handleRadioChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -37,6 +54,10 @@ const ContactFormModal = () => {
     }));
   };
 
+  /**
+   * Handles changes to the input for the selected date
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The event object from the input change
+   */
   const handleDateChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -44,6 +65,10 @@ const ContactFormModal = () => {
     }));
   };
 
+  /**
+   * Add the selected date to the list of selected dates. If there are already 3 dates selected,
+   * show an error toast. If no date is selected, show an error toast as well.
+   */
   const addDate = () => {
     if (formData.selectedDate && formData.selectedDates.length < 3) {
       setFormData((prevData) => ({
@@ -51,33 +76,17 @@ const ContactFormModal = () => {
         selectedDates: [...prevData.selectedDates, formData.selectedDate],
         selectedDate: "", // Reset after adding
       }));
-    } else if (!formData.selectedDate) {
-      toast.error("Please select a date!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        closeButton: <FaTimes />,
-      });
+    } else if (!isEmpty(formData.selectedDate)) {
+      toast.error(EROOR_FOR_SELECT_DATE, toastErrorStyle); // If no date select,it will show error
     } else {
-      toast.error("You can only add up to 3 dates.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        closeButton: <FaTimes />,
-      });
+      toast.error(ERROR_FOR_LIMITED_DATE, toastErrorStyle); // If user selected more than 3 dates,it will show error
     }
   };
 
+  /**
+   * Removes a date from the list of selected dates. Also shows an info toast with the date that was removed.
+   * @param {string} dateToRemove - The date to remove from the list
+   */
   const removeDate = (dateToRemove) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -85,38 +94,22 @@ const ContactFormModal = () => {
         (date) => date !== dateToRemove
       ),
     }));
-    toast.info(`Remove Date: ${dateToRemove}`, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      closeButton: <FaTimes />,
-    });
   };
 
+  /**
+   * Handles the form submission for the contact form.
+   * @param {React.FormEvent<HTMLFormElement>} e - The event object from the form submission
+   * @returns {Promise<void>}
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (formData.selectedDates.length === 0) {
-      toast.error("Please select at least one preferred date.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        closeButton: <FaTimes />,
-      });
+      toast.error(ERROR_FOR_SELECT_ATLEAST_ONE_DATE, toastErrorStyle); // If no date select,it will show error
       return;
     }
 
-    const requestData = {
+    /** Prepare the api request data */
+    const jsonData = {
       name: formData.name,
       email: formData.email,
       mobile: formData.mobile,
@@ -126,101 +119,15 @@ const ContactFormModal = () => {
     };
 
     try {
-      let response;
-
-      if (formData.contactMethod === "WhatsApp") {
-        // Send data to the backend to trigger the WhatsApp message
-        response = await axios.post("/sendWhatsAppMessage", requestData);
-        if (response.data.success) {
-          toast.success(
-            `Thank you for choosing us! We will get back on Whatsapp ${requestData.mobile} shortly.`,
-            {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-              closeButton: <FaTimes />,
-            }
-          );
-        } else {
-          toast.error("Failed to send WhatsApp message.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            closeButton: <FaTimes />,
-          });
-        }
-      } else if (formData.contactMethod === "Mail") {
-        response = await axios.post("http://localhost:3001/send", requestData);
-        if (response.status === 200) {
-          toast.success(
-            `Thank you for choosing us! We will get back on Gmail ${requestData.email} shortly`,
-            {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-              closeButton: <FaTimes />,
-            }
-          );
-        } else {
-          toast.error("Error sending email", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            closeButton: <FaTimes />,
-          });
-        }
-      } else if (formData.contactMethod === "Telegram") {
-        response = await axios.post("http://localhost:3001/send", requestData);
-        if (response.status === 200) {
-          toast.success(
-            `Thank you for choosing us! We will get back on Telegram ${requestData.mobile} shortly.`,
-            {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-              closeButton: <FaTimes />,
-            }
-          );
-        } else {
-          toast.error("Failed to send message.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            closeButton: <FaTimes />,
-          });
-        }
+      const response = await axios.post(
+        `${process.env.BACKEND_URL}/contact`,
+        jsonData
+      );
+      if (response.status === 200 && response.data) {
+        toast.success(response.data.message, toastSuccessStyle);
+      } else {
+        toast.error(response.data.message, toastErrorStyle);
       }
-
       // Reset form data after submission
       setFormData({
         name: "",
@@ -232,21 +139,9 @@ const ContactFormModal = () => {
         selectedDates: [],
       });
     } catch (error) {
-      console.error("Error sending message:", error);
-      toast.error("An error occurred while sending the message.", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        closeButton: <FaTimes />,
-      });
+      toast.error(ERROR_FOR_SENDING_MESSAGE, toastErrorStyle);
     }
-
-    handleClose();
+    setIsOpenModal(false);
   };
 
   return (
@@ -256,14 +151,18 @@ const ContactFormModal = () => {
           <Col className="call-book text-center">
             <h2>Book Your Free Consultation</h2>
             <p>Let’s discuss your idea and build something amazing together.</p>
-            <Button onClick={handleShow}>Book A Call</Button>
+            <Button onClick={() => setIsOpenModal(true)}>Book A Call</Button>
 
-            <Modal show={show} onHide={handleClose} centered>
+            <Modal
+              show={isOpenModal}
+              onHide={() => setIsOpenModal(false)}
+              centered
+            >
               <Modal.Header closeButton>
                 <Modal.Title>Connect With Us</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <Form onSubmit={handleSubmit}>
+                <Form>
                   {/* Name Input */}
                   <Form.Group controlId="formName">
                     <Form.Control
@@ -289,7 +188,7 @@ const ContactFormModal = () => {
                     />
                   </Form.Group>
 
-                  {/* Mobile Input */}
+                  {/* Mobile Number Input */}
                   <Form.Group controlId="formContact" className="mt-3">
                     <Form.Control
                       type="text"
@@ -314,7 +213,7 @@ const ContactFormModal = () => {
                     />
                   </Form.Group>
 
-                  {/* Contact Method Radio Buttons */}
+                  {/* Mode Of Contact Radio Buttons */}
                   <Form.Group
                     controlId="formContactMethod"
                     className="ps-3 mt-3"
@@ -395,7 +294,10 @@ const ContactFormModal = () => {
                     )}
                   </Form.Group>
 
-                  <Button className="sent-message">Send Message</Button>
+                  {/* Submit Button */}
+                  <Button className="sent-message" onClick={handleSubmit}>
+                    Send Message
+                  </Button>
                 </Form>
               </Modal.Body>
             </Modal>
