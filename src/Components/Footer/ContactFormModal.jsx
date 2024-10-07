@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form, Container, Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaTimes } from "react-icons/fa";
 import axios from "axios";
 import "./ContactFormModal.css";
 
@@ -51,9 +52,29 @@ const ContactFormModal = () => {
         selectedDate: "", // Reset after adding
       }));
     } else if (!formData.selectedDate) {
-      toast.error("Please select a date.");
+      toast.error("Please select a date!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        closeButton: <FaTimes />,
+      });
     } else {
-      toast.error("You can only add up to 3 dates.");
+      toast.error("You can only add up to 3 dates.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        closeButton: <FaTimes />,
+      });
     }
   };
 
@@ -64,14 +85,34 @@ const ContactFormModal = () => {
         (date) => date !== dateToRemove
       ),
     }));
-    toast.info(`Removed date: ${dateToRemove}`);
+    toast.info(`Remove Date: ${dateToRemove}`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      closeButton: <FaTimes />,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.selectedDates.length === 0) {
-      toast.error("Please select at least one preferred date.");
+      toast.error("Please select at least one preferred date.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        closeButton: <FaTimes />,
+      });
       return;
     }
 
@@ -92,28 +133,91 @@ const ContactFormModal = () => {
         response = await axios.post("/sendWhatsAppMessage", requestData);
         if (response.data.success) {
           toast.success(
-            `Thank you for choosing us! We will get back on Whatsapp ${requestData.mobile} shortly.`
+            `Thank you for choosing us! We will get back on Whatsapp ${requestData.mobile} shortly.`,
+            {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              closeButton: <FaTimes />,
+            }
           );
         } else {
-          toast.error("Failed to send WhatsApp message.");
+          toast.error("Failed to send WhatsApp message.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            closeButton: <FaTimes />,
+          });
         }
       } else if (formData.contactMethod === "Mail") {
         response = await axios.post("http://localhost:3001/send", requestData);
         if (response.status === 200) {
           toast.success(
-            `Thank you for choosing us! We will get back on Gmail ${requestData.email} shortly`
+            `Thank you for choosing us! We will get back on Gmail ${requestData.email} shortly`,
+            {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              closeButton: <FaTimes />,
+            }
           );
         } else {
-          toast.error("Error sending email");
+          toast.error("Error sending email", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            closeButton: <FaTimes />,
+          });
         }
       } else if (formData.contactMethod === "Telegram") {
         response = await axios.post("http://localhost:3001/send", requestData);
         if (response.status === 200) {
           toast.success(
-            `Thank you for choosing us! We will get back on Telegram ${requestData.mobile} shortly.`
+            `Thank you for choosing us! We will get back on Telegram ${requestData.mobile} shortly.`,
+            {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              closeButton: <FaTimes />,
+            }
           );
         } else {
-          toast.error("Failed to send message.");
+          toast.error("Failed to send message.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            closeButton: <FaTimes />,
+          });
         }
       }
 
@@ -129,7 +233,17 @@ const ContactFormModal = () => {
       });
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("An error occurred while sending the message.");
+      toast.error("An error occurred while sending the message.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        closeButton: <FaTimes />,
+      });
     }
 
     handleClose();
@@ -158,6 +272,7 @@ const ContactFormModal = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      className="form-control"
                       required
                     />
                   </Form.Group>
@@ -204,8 +319,14 @@ const ContactFormModal = () => {
                     controlId="formContactMethod"
                     className="ps-3 mt-3"
                   >
-                    <Form.Label>Mode of contact *</Form.Label>
-                    <div>
+                    <Form.Label>Mode Of Contact : </Form.Label>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        marginTop: "7px",
+                      }}
+                    >
                       <Form.Check
                         type="radio"
                         label="Mail"
@@ -243,26 +364,29 @@ const ContactFormModal = () => {
                       value={formData.selectedDate}
                       onChange={handleDateChange}
                     />
-                    <Button
-                      variant="secondary"
-                      className="mt-2"
-                      onClick={addDate}
-                    >
+                    <Button className="add-date" onClick={addDate}>
                       Add Date
                     </Button>
                     {formData.selectedDates.length > 0 && (
-                      <div className="mt-3">
+                      <div style={{ marginTop: "10px" }}>
                         <p>Selected Dates:</p>
-                        <ul>
+                        <ul
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            listStyle: "square",
+                            padding: "10px",
+                          }}
+                        >
                           {formData.selectedDates.map((date, index) => (
-                            <li key={index}>
-                              {date}{" "}
+                            <li key={index} style={{ fontSize: "16px" }}>
+                              {date}
                               <Button
-                                variant="danger"
-                                size="sm"
+                                variant="link"
                                 onClick={() => removeDate(date)}
+                                style={{ padding: "5px", marginBottom: "5px" }}
                               >
-                                Remove
+                                <FaTimes size={24} color="#ff5722" />
                               </Button>
                             </li>
                           ))}
@@ -271,9 +395,7 @@ const ContactFormModal = () => {
                     )}
                   </Form.Group>
 
-                  <Button variant="primary" type="submit" className="mt-4">
-                    Submit
-                  </Button>
+                  <Button className="sent-message">Send Message</Button>
                 </Form>
               </Modal.Body>
             </Modal>
