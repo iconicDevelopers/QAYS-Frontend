@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Carousel, Card, Row, Col,  } from "react-bootstrap";
+import { Carousel, Card, Row, Col } from "react-bootstrap";
 
 const TestimonialCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -12,13 +12,13 @@ const TestimonialCarousel = () => {
     {
       text: `“Their Figma design and web app conversion services were top-notch, and our project was delivered on time and within budget! They crafted custom solutions that enhanced our overall project.”`,
       author: "Jordan Lee",
-      image: "https://via.placeholder.com/150", // replace with actual image URL
+      image: "https://via.placeholder.com/150",
       stars: 5,
     },
     {
       text: `" QAYS was a game-changer for our startup. Their expertise in mobile app development helped us launch a product that exceeded our expectations. We’re thrilled with the results!”`,
       author: "Emily Carter",
-      image: "https://via.placeholder.com/150", // replace with another image URL
+      image: "https://via.placeholder.com/150",
       stars: 5,
     },
     {
@@ -44,7 +44,10 @@ const TestimonialCarousel = () => {
   ];
 
   return (
-    <div style={{ position: "relative", maxWidth: "900px", margin: "auto" }}>
+    <div
+      style={{ position: "relative", maxWidth: "900px", margin: "auto" }}
+      id="testimonials"
+    >
       <Carousel
         activeIndex={activeIndex}
         onSelect={handleSelect}
@@ -53,7 +56,7 @@ const TestimonialCarousel = () => {
         controls={false}
       >
         {testimonials.map((testimonial, index) => (
-          <Carousel.Item key={index} >
+          <Carousel.Item key={index}>
             <Card className="carsusel-card ">
               <Row>
                 <Col md={4}>

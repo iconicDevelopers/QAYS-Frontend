@@ -24,6 +24,7 @@
   font-size: 16px;
   color: #d9dbdf;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .about-image-container {
@@ -84,6 +85,5 @@
 .join-aboutus p {
   font-weight: bold;
   color: #d9dbdf;
-  padding: 0px 40px;
   font-style: italic;
 }

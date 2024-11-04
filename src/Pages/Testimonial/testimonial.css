@@ -9,7 +9,7 @@
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 30px;
 }
 .testimonial-heading-dark {
   font-weight: 600;
@@ -48,6 +48,14 @@
   font-size: 18px;
   color: #d9dbdf;
 }
+@media (max-width: 768px) {
+  .testimonial-para {
+    text-align: justify;
+  }
+  .testimonial-para-dark {
+    text-align: justify;
+  }
+}
 .rounded-icon {
   display: flex;
   justify-content: center;
@@ -71,6 +79,7 @@
   line-height: 1.6;
   font-weight: 400;
   font-style: italic;
+  text-align: justify;
 }
 
 .testimonial-author {

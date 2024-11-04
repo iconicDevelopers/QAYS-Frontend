@@ -29,19 +29,21 @@ function NavBar({ theme, setTheme }) {
 
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
-          // className="navbar-toggle"
           className={theme === "dark" && "navbar-toggle-dark"}
           onClick={() => setExpanded(expanded ? false : "expanded")}
         >
           {expanded ? (
             <FaTimes size={24} />
           ) : (
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon "></span>
           )}
         </Navbar.Toggle>
 
         {/* Navigation Links and Button */}
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={theme === "dark" ? "navbar-collapse-dark" : ""}
+        >
           <Nav className="ms-auto text-start">
             <Nav.Link
               href="#home"
@@ -56,13 +58,13 @@ function NavBar({ theme, setTheme }) {
               Services
             </Nav.Link>
             <Nav.Link
-              href="#testimonial"
+              href="#testimonials"
               className={`${theme === "dark" ? "nav-link-dark" : "nav-link"}`}
             >
-              Testimonial
+              Testimonials
             </Nav.Link>
             <Nav.Link
-              href="#features"
+              href="#faq"
               className={`${theme === "dark" ? "nav-link-dark" : "nav-link"}`}
             >
               FAQ
@@ -71,23 +73,27 @@ function NavBar({ theme, setTheme }) {
               href="#aboutus"
               className={`${theme === "dark" ? "nav-link-dark" : "nav-link"}`}
             >
-              About as
+              About Us
             </Nav.Link>
             <Nav.Link
               href="#contactus"
               className={`${theme === "dark" ? "nav-link-dark" : "nav-link"}`}
             >
-              Contact as
+              Contact Us
             </Nav.Link>
-            <div className="d-flex align-items-center ms-2">
+            <div
+              className="d-flex align-items-center ms-2 curso"
+              onClick={toggleDarkMode}
+              style={{ cursor: "pointer" }}
+            >
               {isDarkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
-              <Form.Check
+              {/* <Form.Check
                 type="switch"
                 id="dark-mode-switch"
                 checked={isDarkMode}
                 onChange={toggleDarkMode}
                 className="mx-2"
-              />
+              /> */}
             </div>
           </Nav>
         </Navbar.Collapse>

@@ -6,7 +6,9 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import Testimonial from "./Pages/Testimonial/Testimonial";
 import AboutUs from "./Pages/Aboutus/AboutUs";
-import "./App.css"; 
+import "./App.css";
+import Experience from "./Pages/Experience/Experience";
+
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -15,6 +17,7 @@ const App = () => {
     <div className={`app-container ${theme}`}>
       <NavBar theme={theme} setTheme={setTheme} />
       <Home theme={theme} />
+      <Experience theme={theme} />
       <Service theme={theme} />
       <Testimonial theme={theme} />
       <AboutUs theme={theme} />

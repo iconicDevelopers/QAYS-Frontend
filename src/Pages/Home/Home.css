@@ -54,6 +54,7 @@
   font-size: 16px;
   color: rgb(37, 37, 37);
   margin-bottom: 0px;
+  text-align: justify;
 }
 
 .custom-para-dark {
@@ -63,6 +64,7 @@
   font-size: 16px;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
+  text-align: justify;
 }
 
 /* Hero Section Container */

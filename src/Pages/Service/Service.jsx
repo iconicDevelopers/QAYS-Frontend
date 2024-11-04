@@ -1,81 +1,131 @@
-import { Container, Row, Col, Button, Card, Carousel } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import Slider from "react-slick";
+import {
+  FaGlobe,
+  FaLaptop,
+  FaImage,
+  FaRobot,
+  FaBrain,
+  FaSatelliteDish,
+  FaWordpress,
+  FaMobileAlt,
+  FaFolder,
+  FaLink,
+} from "react-icons/fa";
 import "./Service.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "../../Components/Header/NavBar.css";
-
+import ML from "../../assets/Service/ML.jpg";
+import BlockChain from "../../assets/Service/BlockChain.jpg";
+import Iot from "../../assets/Service/Iot.jpg";
+import figma from "../../assets/Service/figma.webp";
+import mobileApp from "../../assets/Service/mobileApp.jpg";
+import wordpress from "../../assets/Service/wordpress.jpeg";
+import WebSiteDev from "../../assets/Service/WebSiteDev.jpg";
+import Ai from "../../assets/Service/Ai.jpg";
+import portfolio from "../../assets/Service/portfolio.jpg";
+import wepAppDev from "../../assets/Service/wepAppDev.jpg";
 const Service = ({ theme }) => {
   const serviceData = [
     {
       title: "Custom Website Development",
-      icon: "🌐",
+      icon: <FaGlobe size={40} />,
       description:
         "Develop customized websites that align with your business goals.",
+      backgroundImage: WebSiteDev,
     },
     {
       title: "Custom Web Application Development",
-      icon: "💻",
+      icon: <FaLaptop size={40} />,
       description: "Build scalable and high-performance web applications.",
+      backgroundImage: wepAppDev,
     },
     {
       title: "Figma to Web App Conversions",
-      icon: "🖼️",
+      icon: <FaImage size={40} />,
       description: "Convert your Figma designs into fully responsive web apps.",
+      backgroundImage: figma,
     },
     {
       title: "Machine Learning (ML) Integration",
-      icon: "🤖",
+      icon: <FaRobot size={40} />,
       description: "Leverage machine learning to make data-driven decisions.",
+      backgroundImage: ML,
     },
     {
       title: "Artificial Intelligence (AI) Integration",
-      icon: "🧠",
+      icon: <FaBrain size={40} />,
       description: "Implement AI-driven features to enhance your applications.",
+      backgroundImage: Ai,
     },
-
     {
       title: "IoT Integration",
-      icon: "📡",
+      icon: <FaSatelliteDish size={40} />,
       description: "Connect your devices and services with IoT integrations.",
+      backgroundImage: Iot,
     },
-
     {
       title: "WordPress Development",
-      icon: "🔧",
+      icon: <FaWordpress size={40} />,
       description: "Develop custom WordPress websites and plugins.",
+      backgroundImage: wordpress,
     },
     {
       title: "Mobile App Development for iOS and Android",
-      icon: "📱",
+      icon: <FaMobileAlt size={40} />,
       description:
         "Design and develop mobile applications for iOS and Android platforms.",
+      backgroundImage: mobileApp,
     },
     {
       title: "Portfolio Page Creation",
-      icon: "📁",
+      icon: <FaFolder size={40} />,
       description: "Create stunning portfolio pages to showcase your work.",
+      backgroundImage: portfolio,
     },
     {
       title: "Web3 Blockchain Applications",
-      icon: "🔗",
+      icon: <FaLink size={40} />,
       description:
         "Integrate blockchain solutions into your apps using Web3 technologies.",
+      backgroundImage: BlockChain,
     },
   ];
 
-  const chunkArray = (array, size) => {
-    const chunkedArr = [];
-    for (let i = 0; i < array.length; i += size) {
-      chunkedArr.push(array.slice(i, i + size));
-    }
-    return chunkedArr;
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
-  const carouselItems = chunkArray(serviceData, 3); // Chunk the array into groups of 3
 
   return (
     <div
       className={
         theme === "dark" ? "service-container-dark" : "service-container"
       }
+      id="services"
     >
       <Container>
         <Row>
@@ -87,7 +137,7 @@ const Service = ({ theme }) => {
           </Col>
         </Row>
 
-        <Row className="mt-5">
+        <Row className="mt-0 mt-md-2 d-flex align-items-center custom-margin-top">
           <Col lg={4}>
             <p className="service-para">
               Our expert team provides custom design, web and mobile app
@@ -106,33 +156,26 @@ const Service = ({ theme }) => {
           </Col>
 
           <Col lg={8} className="services-container">
-            <Carousel
-              indicators={false}
-              interval={3000} // Set interval to 3 seconds
-              controls={false}
-            >
-              {carouselItems.map((group, groupIndex) => (
-                <Carousel.Item key={groupIndex}>
-                  <Row>
-                    {group.map((item, index) => (
-                      <Col lg={4} md={6} xs={12} className="mb-4" key={index}>
-                        <Card className="service-card">
-                          <i className="service-icon">{item.icon}</i>
-                          <Card.Body className="service-card-body">
-                            <Card.Title className="service-title">
-                              {item.title}
-                            </Card.Title>
-                            <Card.Text className="service-description">
-                              {item.description}
-                            </Card.Text>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                    ))}
-                  </Row>
-                </Carousel.Item>
+            <Slider {...sliderSettings}>
+              {serviceData.map((item, index) => (
+                <div key={index} className="mb-4">
+                  <Card
+                    className="service-card"
+                    style={{ backgroundImage: `url(${item.backgroundImage})` }}
+                  >
+                    <Card.Body className="service-card-body">
+                      <div className="service-icon">{item.icon}</div>
+                      <Card.Title className="service-title">
+                        {item.title}
+                      </Card.Title>
+                      <Card.Text className="service-description">
+                        {item.description}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
               ))}
-            </Carousel>
+            </Slider>
           </Col>
         </Row>
       </Container>

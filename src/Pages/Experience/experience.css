@@ -1,0 +1,60 @@
+.experience-section {
+  background-color: #f8f9fa; /* light background for the section */
+  padding: 50px 0;
+}
+.experience-section-dark {
+  background-color: rgb(17, 15, 15);
+  padding: 50px 0;
+}
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.image-body {
+  background-color: white;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.stat-card img {
+  padding: 20px;
+  width: 100px; /* equal width for all images */
+  height: 100px; /* equal height for all images */
+  object-fit: contain; /* ensure image scales properly */
+}
+
+.light-head {
+  font-size: 2.5rem; /* increase font size for numbers */
+  font-weight: bold;
+  margin: 0;
+}
+.dark-head {
+  color: white;
+  font-size: 2.5rem; /* increase font size for numbers */
+  font-weight: bold;
+  margin: 0;
+}
+
+.light-para {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.dark-para {
+  color: white;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+@media (min-width: 768px) {
+  .stat-card h2 {
+    font-size: 3rem; /* even larger for bigger screens */
+  }
+}

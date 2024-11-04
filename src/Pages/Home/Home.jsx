@@ -5,7 +5,7 @@ import "../../CSS/common.css";
 
 const Home = ({ theme }) => {
   return (
-    <div className={theme === "dark" ? "dark-home" : "home-section"}>
+    <div className={theme === "dark" ? "dark-home" : "home-section"} id="home">
       <Container>
         <div className="background-animation"></div>
         <Row>

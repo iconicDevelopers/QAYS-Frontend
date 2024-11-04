@@ -31,7 +31,10 @@ const FaqSection = ({ theme }) => {
   };
 
   return (
-    <div className={theme === "dark" ? "faq-section-dark" : "faq-section"}>
+    <div
+      className={theme === "dark" ? "faq-section-dark" : "faq-section"}
+      id="faq"
+    >
       <Container>
         <Row>
           <Col md={4} className="faq-card">

@@ -88,16 +88,6 @@
   text-align: center;
 }
 
-.social-icon {
-  color: #fff;
-  margin: 0 10px;
-  font-size: 18px;
-}
-
-.social-icon:hover {
-  color: #ff5722;
-}
-
 .copyright {
   margin-top: 20px;
   border-top: 1px solid #333;
@@ -124,4 +114,29 @@
 
 .contact-options p a:hover {
   text-decoration: underline;
+}
+
+.social-icons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  text-decoration: none; 
+}
+
+.social-icon {
+  color: #ffffff; 
+  font-size: 20px;
+}
+
+.social-icon-container:hover {
+  opacity: 0.8;
 }
